@@ -12,7 +12,7 @@
           @keypress.enter="fetchWeather"
         />
 
-        <div class="weather-wrap" v-if="weather">
+        <div class="weather-wrap" v-if="weather && query !==''" >
           <div class="location-box">
             {{ weather.name || 'Location Not Available' }},
             {{ weather.sys ? weather.sys.country || 'Country Not Available' : 'Country Not Available' }}
@@ -20,9 +20,10 @@
           <div class="date">{{ dateBuilder() }}</div>
         </div>
 
-        <div class="weather-box" v-if="weather && weather.main">
+        <div class="weather-box" v-if="weather && weather.main && query !==''">
           <div class="temp">{{ weather.main.temp }}&deg;C</div>
-          <div class="weather">{{ weather.weather[0].description }}</div>
+          <div class="weather">Description: {{ weather.weather[0].description }}</div>
+          <div class="weather">Main: {{ weather.weather[0].main}}</div>
           <div class="wind-speed">Wind Speed: {{ weather.wind ? weather.wind.speed + ' m/s' : 'Not Available' }}</div>
         </div>
       </div>
