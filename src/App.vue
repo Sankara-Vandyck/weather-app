@@ -1,5 +1,6 @@
 <template>
-  <div id="app" :class="{ warm: weather && weather.main && weather.main.temp > 16 }">
+  <div id="app" :class="{ warm: weather && weather.main && weather.main.temp > 16}">
+  
     <p>Weather App</p>
     <main>
       <div class="search-box">
@@ -13,7 +14,7 @@
 
         <div class="weather-wrap" v-if="weather">
           <div class="location-box">
-            {{ weather.name || 'Location Not Available' }} or
+            {{ weather.name || 'Location Not Available' }},
             {{ weather.sys ? weather.sys.country || 'Country Not Available' : 'Country Not Available' }}
           </div>
           <div class="date">{{ dateBuilder() }}</div>
@@ -26,6 +27,7 @@
         </div>
       </div>
     </main>
+    
   </div>
 </template>
 
