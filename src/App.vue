@@ -13,7 +13,7 @@
 
         <div class="weather-wrap" v-if="weather">
           <div class="location-box">
-            {{ weather.name || 'Location Not Available' }},
+            {{ weather.name || 'Location Not Available' }} or
             {{ weather.sys ? weather.sys.country || 'Country Not Available' : 'Country Not Available' }}
           </div>
           <div class="date">{{ dateBuilder() }}</div>
@@ -196,4 +196,33 @@ main {
   font-style: italic;
   text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
 }
+
+@media screen and (max-width: 768px) and (min-width: 480px) {
+    main{
+      width: 700px;
+    }
+}
+
+@media screen and (max-width: 480px) and (min-width: 280px) {
+  main{
+    width: 350px;
+  }
+
+  p{
+    font-size: 40px;
+  }
+
+  .weather-box .temp{
+    font-size: 50px;
+  }
+
+  .weather-box .weather {
+    font-size: 45px;
+  }
+
+  .wind-speed{
+    font-size: 25px;
+  }
+}
+
 </style>
